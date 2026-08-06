@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pick &amp; Deli — Deux directions pour votre site</title>
+<meta name="description" content="Deux propositions de site internet pour Pick & Deli, messagerie et fret express à Nîmes. Ouvrez les deux versions et choisissez.">
+<meta name="theme-color" content="#0E0D0C">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+<!-- =======================================================================
+     DOSSIER À DÉPOSER TEL QUEL (les 3 fichiers dans le même dossier) :
+       index.html      <- cette page
+       version-a.html  <- version A, jour
+       version-b.html  <- version B, nuit
+     Les boutons pointent sur les fichiers voisins : aucun lien à modifier,
+     ça marche sur n'importe quel hébergement (Netlify Drop, OVH, etc.).
+     ======================================================================= -->
+
+<style>
+:root{
+  --noir:#0E0D0C;
+  --nuit:#151311;
+  --orange:#E55E2E;
+  --creme:#FEFDFB;
+  --papier:#F2ECE4;
+  --encre:#211E1B;
+  --gris:#8E8A84;
+  --pad:clamp(18px,5vw,64px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--noir);overflow-x:hidden;-webkit-text-size-adjust:100%}
+body{
+  margin:0;width:100%;max-width:100%;overflow-x:hidden;
+  background:var(--noir);color:var(--creme);
+  font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:6px}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+@supports(padding:env(safe-area-inset-left)){
+  .wrap{padding-left:calc(var(--pad) + env(safe-area-inset-left));padding-right:calc(var(--pad) + env(safe-area-inset-right))}
+}
+.cond{font-family:"Barlow Condensed","Manrope",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.01em}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Courier New",monospace;font-size:11px;letter-spacing:.09em;text-transform:uppercase}
+.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:800;color:var(--orange);margin:0}
+
+/* ---------- EN-TÊTE : bordereau ---------- */
+.top{border-bottom:1px solid rgba(254,253,251,.12);background:var(--nuit)}
+.top-in{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 0}
+.studio{display:flex;align-items:center;gap:10px;min-width:0}
+.studio .arc{width:30px;height:30px;flex:none}
+.studio b{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:19px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.studio span{color:var(--gris);font-size:12px;white-space:nowrap}
+.top .ref{margin-left:auto;color:var(--gris)}
+
+.intro{padding:clamp(40px,8vw,80px) 0 clamp(28px,5vw,44px)}
+.intro h1{
+  font-family:"Barlow Condensed",sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(42px,11vw,104px);line-height:.88;letter-spacing:-.01em;margin:16px 0 0;
+}
+.intro h1 em{font-style:normal;color:var(--orange)}
+.intro .lede{max-width:54ch;color:rgba(254,253,251,.72);font-size:clamp(15px,3.6vw,19px);margin:22px 0 0}
+.slip{margin:30px 0 0;border-top:1px dashed rgba(254,253,251,.3);border-bottom:1px dashed rgba(254,253,251,.3);padding:6px 0}
+.slip div{display:flex;flex-wrap:wrap;gap:4px 14px;padding:9px 0;border-bottom:1px solid rgba(254,253,251,.08);color:var(--gris)}
+.slip div:last-child{border-bottom:0}
+.slip b{color:var(--creme);font-weight:700;text-transform:none;letter-spacing:0;font-size:14px;font-family:"Manrope",sans-serif}
+.slip .k{min-width:120px}
+
+/* ---------- LES DEUX ÉTIQUETTES ---------- */
+.picks{padding:0 0 clamp(50px,9vw,90px)}
+.grid2{display:grid;gap:26px}
+@media(min-width:940px){.grid2{grid-template-columns:repeat(2,1fr);gap:28px;align-items:start}}
+
+.label{
+  background:var(--papier);color:var(--encre);border-radius:20px;overflow:hidden;
+  box-shadow:0 30px 60px -34px rgba(0,0,0,.9);
+}
+.label-head{display:flex;align-items:center;gap:14px;padding:13px 18px;background:var(--orange);color:#fff}
+.label-head .letter{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:38px;line-height:.8}
+.label-head .who{min-width:0}
+.label-head .who small{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;opacity:.85}
+.label-head .who b{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:19px;text-transform:uppercase;letter-spacing:.05em}
+.label-head .bars{margin-left:auto;width:74px;height:30px;flex:none;opacity:.9}
+.label-body{padding:18px}
+.shot{position:relative;width:100%;padding-top:62.5%;border-radius:13px;overflow:hidden;background:#0E0D0C}
+.shot svg{position:absolute;top:0;left:0;width:100%;height:100%}
+.label h3{margin:18px 0 0;font-size:clamp(21px,4.6vw,26px);line-height:1.15;font-weight:800;letter-spacing:-.02em}
+.label .kick{margin:0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:800;color:var(--orange)}
+.pts{list-style:none;margin:14px 0 0;padding:0}
+.pts li{position:relative;padding:0 0 0 22px;margin:0 0 8px;font-size:14.5px;color:#55504A}
+.pts li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:2px;background:var(--orange)}
+.open{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin:20px 0 0;padding:16px 20px;border-radius:13px;
+  background:var(--encre);color:#fff;font-weight:800;font-size:16px;
+  transition:background .25s,transform .25s;
+}
+.open:hover{background:var(--orange);transform:translateY(-2px)}
+.open svg{width:18px;height:18px;flex:none}
+.adr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:11px 2px 0}
+.adr code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Courier New",monospace;
+  font-size:11.5px;color:#7A736B;flex:1;min-width:0;word-break:break-all;
+}
+.copy{
+  flex:none;border:1px solid rgba(33,30,27,.25);background:transparent;color:var(--encre);
+  border-radius:999px;padding:7px 13px;cursor:pointer;
+  font-family:inherit;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  transition:background .2s,color .2s;
+}
+.copy:hover{background:var(--encre);color:#fff}
+.note{margin:18px 0 0;color:rgba(254,253,251,.5);font-size:13.5px;display:flex;gap:9px;align-items:flex-start}
+.note svg{width:16px;height:16px;flex:none;margin-top:3px;stroke:var(--orange);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- COMMUN ---------- */
+.same{background:var(--nuit);padding:clamp(50px,9vw,96px) 0;border-top:1px solid rgba(254,253,251,.1)}
+.same h2,.next h2{
+  font-family:"Barlow Condensed",sans-serif;font-weight:800;text-transform:uppercase;
+  font-size:clamp(30px,7vw,54px);line-height:.98;letter-spacing:-.01em;margin:12px 0 8px;
+}
+.same .sub,.next .sub{color:var(--gris);max-width:52ch;margin:0 0 34px}
+.same-grid{display:grid;gap:1px;background:rgba(254,253,251,.12);border:1px solid rgba(254,253,251,.12);border-radius:14px;overflow:hidden}
+@media(min-width:700px){.same-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.same-grid{grid-template-columns:repeat(3,1fr)}}
+.cell{background:var(--nuit);padding:22px 20px}
+.cell svg{width:22px;height:22px;stroke:var(--orange);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cell b{display:block;margin:12px 0 5px;font-size:16px;font-weight:800}
+.cell p{margin:0;color:rgba(254,253,251,.6);font-size:14.5px}
+
+/* ---------- SUITE ---------- */
+.next{padding:clamp(50px,9vw,96px) 0}
+.steps{display:grid;gap:0;border-top:1px solid rgba(254,253,251,.14)}
+.step{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;padding:20px 0;border-bottom:1px solid rgba(254,253,251,.14)}
+.step .n{grid-row:span 2;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:26px;color:var(--orange);line-height:1;min-width:34px}
+.step b{font-size:clamp(18px,4.2vw,23px);font-weight:800;letter-spacing:-.01em}
+.step span{color:var(--gris);font-size:14.5px}
+
+/* ---------- PIED ---------- */
+footer{background:var(--orange);color:#fff;padding:clamp(44px,8vw,80px) 0}
+footer .fh{font-family:"Barlow Condensed",sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(28px,7vw,56px);line-height:.96;margin:10px 0 8px;letter-spacing:-.01em}
+footer .fs{color:rgba(255,255,255,.9);max-width:46ch;margin:0 0 26px}
+.mine{display:flex;flex-wrap:wrap;gap:11px}
+.mine a{display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--encre);font-weight:800;font-size:15px;padding:14px 20px;border-radius:999px;transition:transform .25s}
+.mine a:hover{transform:translateY(-3px)}
+.mine a.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+.mine svg{width:16px;height:16px;flex:none}
+.sign{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.3);font-size:13px;color:rgba(255,255,255,.85);line-height:1.8}
+
+/* ---------- révélations (jamais bloquantes sans JS) ---------- */
+.js .reveal{opacity:0;transform:translateY(24px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+
+@media(orientation:landscape) and (max-height:520px){
+  .intro{padding-top:26px}
+  .intro h1{font-size:clamp(34px,6.4vw,62px)}
+  .intro .lede{font-size:15px;margin-top:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap top-in">
+    <span class="studio">
+      <svg class="arc" viewBox="0 0 30 30" aria-hidden="true" fill="none" stroke="#E55E2E" stroke-width="1.8">
+        <path d="M3 26V12a5 5 0 0 1 10 0v14M17 26V12a5 5 0 0 1 10 0v14M1.5 26h27"/>
+      </svg>
+      <b>Nemaus</b>
+      <span>Studio web · Nîmes</span>
+    </span>
+    <span class="mono ref">Réf. PD&nbsp;— 06.08.2026</span>
+  </div>
+</div>
+
+<header class="intro">
+  <div class="wrap">
+    <p class="eyebrow">Proposition de site internet</p>
+    <h1>Deux directions,<br><em>un choix</em> à faire.</h1>
+    <p class="lede">Le même contenu, les mêmes numéros, deux ambiances. Ouvrez les deux, gardez celle qui ressemble le plus à Pick&nbsp;&amp;&nbsp;Deli.</p>
+    <div class="slip mono">
+      <div><span class="k">Destinataire</span><b>Pick &amp; Deli — à l'attention de Yoann Soum et Jaafar Badreddine</b></div>
+      <div><span class="k">Objet</span><b>Site vitrine, une seule page, prêt à mettre en ligne</b></div>
+      <div><span class="k">À faire</span><b>Ouvrir les deux liens, puis choisir A ou B</b></div>
+    </div>
+  </div>
+</header>
+
+<main class="picks">
+  <div class="wrap grid2">
+
+    <!-- ===================== VERSION A ===================== -->
+    <article class="label reveal">
+      <div class="label-head">
+        <span class="letter">A</span>
+        <span class="who">
+          <small>Direction</small>
+          <b>Grand jour</b>
+        </span>
+        <svg class="bars" viewBox="0 0 74 30" aria-hidden="true">
+          <g fill="#fff">
+            <rect x="0" y="0" width="3" height="30"/><rect x="5" y="0" width="1.5" height="30"/>
+            <rect x="9" y="0" width="4" height="30"/><rect x="15" y="0" width="1.5" height="30"/>
+            <rect x="19" y="0" width="2.5" height="30"/><rect x="24" y="0" width="4" height="30"/>
+            <rect x="30" y="0" width="1.5" height="30"/><rect x="34" y="0" width="3" height="30"/>
+            <rect x="40" y="0" width="1.5" height="30"/><rect x="44" y="0" width="4" height="30"/>
+            <rect x="50" y="0" width="2" height="30"/><rect x="55" y="0" width="1.5" height="30"/>
+            <rect x="59" y="0" width="3.5" height="30"/><rect x="65" y="0" width="1.5" height="30"/>
+            <rect x="69" y="0" width="3" height="30"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="label-body">
+        <div class="shot">
+          <svg viewBox="0 0 320 200" role="img" aria-label="Aperçu de la version A : titre Ça roule pour vous sur fond noir">
+            <rect width="320" height="200" fill="#0E0D0C"/>
+            <circle cx="20" cy="17" r="6" fill="#E55E2E"/>
+            <text x="30" y="20" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="9" letter-spacing="1" fill="#FEFDFB">PICK &amp; DELI</text>
+            <rect x="266" y="9" width="40" height="16" rx="8" fill="#E55E2E"/>
+            <text x="286" y="20" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="7" fill="#fff">Appeler</text>
+            <text x="18" y="50" font-family="Manrope, sans-serif" font-weight="800" font-size="6" letter-spacing="1.6" fill="#E55E2E">MESSAGERIE · FRET EXPRESS · NÎMES</text>
+            <g font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="30" letter-spacing="-0.5">
+              <text x="16" y="82" fill="#FEFDFB">ÇA ROULE</text>
+              <text x="16" y="106" fill="#E55E2E">POUR</text>
+              <text x="16" y="130" fill="#FEFDFB">VOUS</text>
+            </g>
+            <line x1="16" y1="152" x2="304" y2="152" stroke="#FEFDFB" stroke-opacity=".32" stroke-width="1.6" stroke-dasharray="6 8"/>
+            <circle cx="16" cy="152" r="4" fill="#E55E2E"/>
+            <circle cx="88" cy="152" r="2.4" fill="#FEFDFB" fill-opacity=".7"/>
+            <circle cx="160" cy="152" r="2.4" fill="#FEFDFB" fill-opacity=".7"/>
+            <circle cx="232" cy="152" r="2.4" fill="#FEFDFB" fill-opacity=".7"/>
+            <circle cx="304" cy="152" r="2.4" fill="#FEFDFB" fill-opacity=".7"/>
+            <rect y="146" width="20" height="11" rx="2.5" fill="#E55E2E">
+              <animate attributeName="x" values="10;292;10" dur="9s" repeatCount="indefinite"/>
+            </rect>
+            <g font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="8" letter-spacing="1">
+              <text x="16" y="170" fill="#E55E2E">NÎMES</text>
+              <text x="304" y="170" text-anchor="end" fill="#FEFDFB" fill-opacity=".55">PARIS</text>
+            </g>
+            <line x1="16" y1="178" x2="304" y2="178" stroke="#FEFDFB" stroke-opacity=".16"/>
+            <g font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="15" fill="#FEFDFB">
+              <text x="16" y="195">240+</text>
+              <text x="88" y="195">24/7</text>
+              <text x="160" y="195">4</text>
+              <text x="232" y="195">2023</text>
+            </g>
+          </svg>
+        </div>
+
+        <p class="kick" style="margin-top:18px">Lisible, direct, plein jour</p>
+        <h3>« Ça roule pour vous »</h3>
+        <ul class="pts">
+          <li>Un lettrage large et carré, comme sur le flanc d'un camion.</li>
+          <li>La ligne Nîmes → Paris que le camion parcourt tout seul.</li>
+          <li>Les quatre prestations en liste : un clic ouvre un mail de devis pré-rempli.</li>
+          <li>Section contact orange, très visible, avec vos deux numéros.</li>
+        </ul>
+
+        <a class="open" href="version-a.html">
+          Ouvrir la version A
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <div class="adr">
+          <code data-rel="version-a.html">version-a.html</code>
+          <button class="copy" type="button" data-copy="version-a.html">Copier l'adresse</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===================== VERSION B ===================== -->
+    <article class="label reveal">
+      <div class="label-head">
+        <span class="letter">B</span>
+        <span class="who">
+          <small>Direction</small>
+          <b>Pleine nuit</b>
+        </span>
+        <svg class="bars" viewBox="0 0 74 30" aria-hidden="true">
+          <g fill="#fff">
+            <rect x="0" y="0" width="1.5" height="30"/><rect x="4" y="0" width="4" height="30"/>
+            <rect x="10" y="0" width="2" height="30"/><rect x="14" y="0" width="3.5" height="30"/>
+            <rect x="20" y="0" width="1.5" height="30"/><rect x="24" y="0" width="3" height="30"/>
+            <rect x="29" y="0" width="4" height="30"/><rect x="35" y="0" width="1.5" height="30"/>
+            <rect x="39" y="0" width="2.5" height="30"/><rect x="44" y="0" width="1.5" height="30"/>
+            <rect x="48" y="0" width="4" height="30"/><rect x="54" y="0" width="2" height="30"/>
+            <rect x="58" y="0" width="1.5" height="30"/><rect x="62" y="0" width="3.5" height="30"/>
+            <rect x="68" y="0" width="4" height="30"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="label-body">
+        <div class="shot">
+          <svg viewBox="0 0 320 200" role="img" aria-label="Aperçu de la version B : route de nuit éclairée par un phare">
+            <defs>
+              <radialGradient id="beam" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#E55E2E" stop-opacity=".45"/>
+                <stop offset="55%" stop-color="#E55E2E" stop-opacity=".16"/>
+                <stop offset="100%" stop-color="#E55E2E" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect width="320" height="200" fill="#08070A"/>
+            <path d="M0,200 L132,88 L188,88 L320,200 Z" fill="#101014"/>
+            <path d="M160,90 L160,200" stroke="#FEFDFB" stroke-opacity=".18" stroke-width="2.4" stroke-dasharray="9 12"/>
+            <path d="M140,92 L60,200" stroke="#FEFDFB" stroke-opacity=".1" stroke-width="1.4"/>
+            <path d="M180,92 L260,200" stroke="#FEFDFB" stroke-opacity=".1" stroke-width="1.4"/>
+            <g>
+              <animateTransform attributeName="transform" type="translate" values="-46 0;46 0;-46 0" dur="9s" repeatCount="indefinite"/>
+              <circle cx="150" cy="132" r="86" fill="url(#beam)"/>
+            </g>
+            <rect x="58" y="9" width="204" height="21" rx="10.5" fill="#FEFDFB" fill-opacity=".07" stroke="#FEFDFB" stroke-opacity=".18"/>
+            <circle cx="72" cy="19.5" r="6.5" fill="#E55E2E"/>
+            <text x="85" y="23" font-family="Manrope, sans-serif" font-weight="800" font-size="7.5" fill="#FEFDFB">Pick &amp; Deli</text>
+            <rect x="216" y="13" width="40" height="14" rx="7" fill="#E55E2E"/>
+            <text x="236" y="23" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="7" fill="#fff">Appeler</text>
+            <text x="16" y="56" font-family="Manrope, sans-serif" font-weight="800" font-size="6" letter-spacing="1.6" fill="#E55E2E">MESSAGERIE · FRET EXPRESS · NÎMES</text>
+            <text x="16" y="102" font-family="Manrope, sans-serif" font-weight="800" font-size="23" letter-spacing="-0.8" fill="#FEFDFB">Il fait nuit,</text>
+            <text x="16" y="128" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="25" fill="#FFC9A8">votre colis<tspan font-family="Manrope, sans-serif" font-style="normal" font-weight="800" font-size="23" fill="#FEFDFB" letter-spacing="-0.8"> roule</tspan></text>
+            <text x="16" y="152" font-family="Manrope, sans-serif" font-weight="800" font-size="23" letter-spacing="-0.8" fill="#FEFDFB">déjà.</text>
+            <rect y="172" width="320" height="28" fill="#0B0A0D"/>
+            <line x1="0" y1="172" x2="320" y2="172" stroke="#FEFDFB" stroke-opacity=".12"/>
+            <text x="14" y="191" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="11.5" fill="#FEFDFB" fill-opacity=".82">Transport express · Messagerie · Déménagement · Chauffeur privé<animate attributeName="x" values="14;-26;14" dur="12s" repeatCount="indefinite"/></text>
+          </svg>
+        </div>
+
+        <p class="kick" style="margin-top:18px">Haut de gamme, cinématique</p>
+        <h3>« Il fait nuit, votre colis roule déjà. »</h3>
+        <ul class="pts">
+          <li>Un phare qui suit le doigt (ou la souris) et éclaire la route.</li>
+          <li>Cartes en verre dépoli et titres en italique : un ton plus premium.</li>
+          <li>Bandeau défilant avec les quatre prestations, comme un fil d'actualité.</li>
+          <li>Mêmes numéros, même mail, même itinéraire que la version A.</li>
+        </ul>
+
+        <a class="open" href="version-b.html">
+          Ouvrir la version B
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <div class="adr">
+          <code data-rel="version-b.html">version-b.html</code>
+          <button class="copy" type="button" data-copy="version-b.html">Copier l'adresse</button>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="wrap">
+    <p class="note">
+      <svg viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10H9"/></svg>
+      Chaque bouton ouvre la version en plein écran. Pour revenir ici et essayer l'autre, utilisez la flèche « retour » de votre téléphone ou de votre navigateur.
+    </p>
+  </div>
+</main>
+
+<section class="same">
+  <div class="wrap">
+    <p class="eyebrow">Identique dans les deux versions</p>
+    <h2 class="reveal">Ce qui ne change pas</h2>
+    <p class="sub reveal">Le choix porte sur l'ambiance, pas sur le contenu. Tout ce qui suit est déjà en place des deux côtés.</p>
+    <div class="same-grid">
+      <div class="cell reveal">
+        <svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+        <b>Vos quatre prestations</b>
+        <p>Transport express, messagerie, déménagement, chauffeur privé.</p>
+      </div>
+      <div class="cell reveal">
+        <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        <b>Vos numéros cliquables</b>
+        <p>Un appui sur le 06 23 10 82 26 ou le 07 60 59 67 89 lance l'appel.</p>
+      </div>
+      <div class="cell reveal">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        <b>Demande de devis par mail</b>
+        <p>Le message part vers picketdeli@gmail.com déjà rempli : adresses, marchandise, date.</p>
+      </div>
+      <div class="cell reveal">
+        <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <b>WhatsApp et itinéraire</b>
+        <p>Bouton WhatsApp direct et itinéraire Google Maps vers le 1 rue Ecole Vieille.</p>
+      </div>
+      <div class="cell reveal">
+        <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18.5h2"/></svg>
+        <b>Lisible partout</b>
+        <p>Téléphone, tablette et ordinateur, sans zoomer ni faire glisser sur le côté.</p>
+      </div>
+      <div class="cell reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 8-7 9-4-1-7-4.6-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
+        <b>Vos mentions légales</b>
+        <p>SAS créée en 2023, SIREN 953 216 843, RCS Nîmes, siège social.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="next">
+  <div class="wrap">
+    <p class="eyebrow">La suite</p>
+    <h2 class="reveal">Quatre étapes,<br>et le site est à vous</h2>
+    <p class="sub reveal">Rien n'est figé : la version choisie sert de base, on l'ajuste ensemble avant la mise en ligne.</p>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="n">1</span>
+        <b>Vous choisissez A ou B</b>
+        <span>Un appel ou un message suffit. Vous pouvez aussi prendre le hero de l'une et la mise en page de l'autre.</span>
+      </div>
+      <div class="step reveal">
+        <span class="n">2</span>
+        <b>On ajuste</b>
+        <span>Textes, photos de la flotte, zones desservies, horaires : tout ce que vous voulez corriger.</span>
+      </div>
+      <div class="step reveal">
+        <span class="n">3</span>
+        <b>Nom de domaine et hébergement</b>
+        <span>Pris à votre nom, avec vos identifiants. Le site et l'adresse vous appartiennent, pas à moi.</span>
+      </div>
+      <div class="step reveal">
+        <span class="n">4</span>
+        <b>Mise en ligne et remise des fichiers</b>
+        <span>Le site part en ligne et vous recevez tous les fichiers sources par mail.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="eyebrow" style="color:rgba(255,255,255,.85)">Votre interlocuteur</p>
+    <p class="fh">Une question,<br>un changement&nbsp;?</p>
+    <p class="fs">Dites-moi simplement ce qui vous plaît et ce qui ne vous plaît pas dans chaque version. Je m'occupe du reste.</p>
+    <div class="mine">
+      <a href="tel:+33768550965">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        07 68 55 09 65
+      </a>
+      <a class="ghost" href="mailto:souleymanebadreddine5@gmail.com?subject=Site%20Pick%20%26%20Deli%20%E2%80%94%20mon%20choix&amp;body=Bonjour%2C%0A%0AApr%C3%A8s%20avoir%20vu%20les%20deux%20versions%2C%20je%20pr%C3%A9f%C3%A8re%20la%20version%20%3A%20A%20%2F%20B%0A%0ACe%20que%20je%20souhaite%20changer%20%3A%0A-%20%0A-%20%0A%0ACordialement%2C">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        Envoyer mon choix par mail
+      </a>
+    </div>
+    <div class="sign">
+      Soulaymane Badreddine — Nemaus, studio web à Nîmes<br>
+      Proposition établie pour Pick &amp; Deli (SAS, SIREN 953 216 843) le 6 août 2026.<br>
+      Les deux versions sont des aperçus : elles ne sont pas encore référencées sur Google.
+    </div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.className += " js";
+(function(){
+  /* --- copier une adresse --- */
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var txt = btn.getAttribute('data-copy');
+      var done = function(){
+        var old = btn.textContent;
+        btn.textContent = 'Copié';
+        setTimeout(function(){ btn.textContent = old; }, 1600);
+      };
+      if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(txt).then(done, fallback);
+      } else { fallback(); }
+      function fallback(){
+        var ta = document.createElement('textarea');
+        ta.value = txt;
+        ta.setAttribute('readonly','');
+        ta.style.position = 'fixed';
+        ta.style.top = '-1000px';
+        document.body.appendChild(ta);
+        ta.select();
+        ta.setSelectionRange(0, ta.value.length);
+        try { document.execCommand('copy'); done(); } catch(e){}
+        document.body.removeChild(ta);
+      }
+    });
+  });
+
+  /* --- adresse complète de chaque version, une fois le site en ligne --- */
+  document.querySelectorAll('[data-rel]').forEach(function(el){
+    try{
+      var abs = new URL(el.getAttribute('data-rel'), window.location.href).href;
+      el.textContent = abs;
+      var btn = el.parentNode.querySelector('.copy');
+      if(btn){ btn.setAttribute('data-copy', abs); }
+    }catch(e){}
+  });
+
+  /* --- apparitions au scroll, avec filet de sécurité :
+         si l'observateur ne part pas (navigateur interne WhatsApp,
+         connexion lente...), tout s'affiche quand même --- */
+  function toutAfficher(){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+  setTimeout(toutAfficher, 2500);
+  window.addEventListener('load', function(){ setTimeout(toutAfficher, 900); });
+  if(!('IntersectionObserver' in window)){ toutAfficher(); return; }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var sibs = e.target.parentNode.children;
+        var i = Array.prototype.indexOf.call(sibs, e.target);
+        e.target.style.transitionDelay = Math.min(i,5)*0.07 + 's';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.1, rootMargin:'0px 0px -4% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

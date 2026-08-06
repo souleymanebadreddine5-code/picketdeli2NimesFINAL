@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pick &amp; Deli — Messagerie &amp; fret express à Nîmes</title>
+<meta name="description" content="Pick &amp; Deli, messagerie et transport express à Nîmes. Enlèvement, livraison, déménagement et chauffeur privé, 24h/24 et 7j/7.">
+<meta name="theme-color" content="#0E0D0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noir:#0E0D0C;
+  --orange:#E55E2E;
+  --creme:#FEFDFB;
+  --sable:#F3EDE5;
+  --gris:#8E8A84;
+  --pad:clamp(18px,5vw,72px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--noir);overflow-x:hidden;-webkit-text-size-adjust:100%}
+body{
+  margin:0;width:100%;max-width:100%;overflow-x:hidden;
+  background:var(--noir);color:var(--creme);
+  font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:4px}
+section[id],header[id]{scroll-margin-top:80px}
+h1,h2,h3,.row-name,.f-slogan{text-wrap:balance}
+p,li,.row-desc,.lede,.sub{text-wrap:pretty}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+@supports(padding:env(safe-area-inset-left)){
+  .wrap{padding-left:calc(var(--pad) + env(safe-area-inset-left));padding-right:calc(var(--pad) + env(safe-area-inset-right))}
+}
+.cond{font-family:"Barlow Condensed","Manrope",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.01em}
+.eyebrow{font-size:clamp(10px,2.6vw,12px);letter-spacing:.28em;text-transform:uppercase;font-weight:800;color:var(--orange)}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(14,13,12,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(254,253,251,.10)}
+.nav-in{display:flex;align-items:center;gap:16px;height:66px}
+.logo{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+.logo-mark{width:38px;height:38px;flex:none;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-style:italic;font-size:17px;color:#fff;letter-spacing:-.02em}
+.logo-txt{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:20px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-links{display:none;gap:26px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{opacity:.72;transition:opacity .25s,color .25s}
+.nav-links a:hover{opacity:1;color:var(--orange)}
+.nav-cta{flex:none;background:var(--orange);color:#fff;font-weight:800;font-size:13px;padding:11px 16px;border-radius:999px;white-space:nowrap;transition:transform .25s,filter .25s}
+.nav-cta:hover{transform:translateY(-2px);filter:brightness(1.08)}
+@media(min-width:940px){.nav-links{display:flex}.logo{flex:none}.nav-in{gap:34px}.nav-spacer{flex:1}}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:clamp(44px,9vw,88px) 0 0;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -20% -30% -20%;height:60%;background:radial-gradient(60% 60% at 50% 100%,rgba(229,94,46,.30),transparent 70%);pointer-events:none}
+.hero-in{position:relative;z-index:2}
+.hero h1{margin:18px 0 0;font-family:"Barlow Condensed","Manrope",sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(56px,17vw,178px);line-height:.84;letter-spacing:-.015em}
+.line{display:block;overflow:hidden}
+.line span{display:block;transform:translateY(102%);animation:riseUp 1s cubic-bezier(.16,1,.3,1) forwards}
+.line:nth-child(2) span{animation-delay:.12s}
+.line:nth-child(3) span{animation-delay:.24s}
+.line em{font-style:normal;color:var(--orange)}
+@keyframes riseUp{to{transform:translateY(0)}}
+.hero p.lede{max-width:56ch;margin:26px 0 0;color:rgba(254,253,251,.74);font-size:clamp(15px,3.6vw,19px);opacity:0;animation:fadeIn .9s .5s ease forwards}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 0;opacity:0;animation:fadeIn .9s .68s ease forwards}
+@keyframes fadeIn{to{opacity:1}}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:800;font-size:15px;transition:transform .25s,background .25s,color .25s}
+.btn-1{background:var(--orange);color:#fff}
+.btn-1:hover{transform:translateY(-3px)}
+.btn-2{border:1.5px solid rgba(254,253,251,.28);color:var(--creme)}
+.btn-2:hover{background:var(--creme);color:var(--noir);transform:translateY(-3px)}
+.btn svg{width:17px;height:17px;flex:none}
+
+/* route line */
+.route{margin-top:clamp(44px,8vw,72px);position:relative;padding:0 2px}
+.rail{position:relative;height:2px;background:repeating-linear-gradient(90deg,rgba(254,253,251,.30) 0 9px,transparent 9px 20px)}
+.dot{position:absolute;top:50%;width:9px;height:9px;border-radius:50%;background:var(--creme);transform:translate(-50%,-50%)}
+.dot.on{background:var(--orange);width:14px;height:14px;box-shadow:0 0 0 5px rgba(229,94,46,.18)}
+/* le camion : c'est le rail-fantôme qui se déplace, en transform (carte graphique)
+   et non en "left" (calcul de mise en page) — seule façon fiable sur iPhone */
+.vanwrap{position:absolute;top:0;left:0;right:0;height:100%;pointer-events:none;
+  animation:drive 11s linear infinite;will-change:transform;transform:translate3d(0,0,0)}
+@keyframes drive{from{transform:translate3d(0,0,0)}to{transform:translate3d(100%,0,0)}}
+.van{position:absolute;top:50%;left:0;width:46px;height:23px;border-radius:5px;background:var(--orange);transform:translate(-50%,-50%);box-shadow:0 6px 20px -6px rgba(229,94,46,.9)}
+.van::before{content:"";position:absolute;left:3px;top:4px;width:13px;height:9px;border-radius:2px;background:rgba(14,13,12,.42)}
+.labels{display:flex;justify-content:space-between;gap:6px;margin-top:16px;font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(254,253,251,.55);font-size:clamp(10px,2.7vw,15px)}
+.labels span:first-child{text-align:left}
+.labels span:last-child{text-align:right}
+.labels .on{color:var(--orange)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid rgba(254,253,251,.14);margin-top:clamp(30px,6vw,54px)}
+.stat{padding:22px 4px;border-bottom:1px solid rgba(254,253,251,.14)}
+.stat:nth-child(odd){border-right:1px solid rgba(254,253,251,.14);padding-right:16px}
+.stat b{display:block;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:clamp(30px,8vw,46px);line-height:1;letter-spacing:-.01em}
+.stat span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gris);font-weight:700}
+@media(min-width:820px){.stats{grid-template-columns:repeat(4,1fr)}.stat{border-right:1px solid rgba(254,253,251,.14)}.stat:last-child{border-right:0}}
+
+/* ---------- BOARD ---------- */
+.board{background:var(--creme);color:var(--noir);padding:clamp(56px,10vw,110px) 0}
+.board .eyebrow{color:var(--orange)}
+.board h2{margin:12px 0 6px;font-family:"Barlow Condensed",sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(34px,8vw,68px);line-height:.94;letter-spacing:-.01em}
+.board .sub{color:#6E6A65;max-width:52ch;margin:0 0 34px}
+.rows{border-top:2px solid var(--noir)}
+.row{
+  display:grid;grid-template-columns:1fr;gap:2px 24px;padding:20px 0;
+  border-bottom:1px solid rgba(14,13,12,.16);
+  transform-origin:top center;
+}
+.js .row{opacity:0;transform:perspective(700px) rotateX(-72deg)}
+.row.in{animation:flip .75s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes flip{to{opacity:1;transform:perspective(700px) rotateX(0)}}
+.row-name{font-family:"Barlow Condensed",sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(26px,6.4vw,40px);line-height:1;letter-spacing:.005em}
+.row-desc{color:#6E6A65;font-size:15px}
+.row-tag{justify-self:start;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);border:1.5px solid rgba(229,94,46,.4);border-radius:999px;padding:7px 13px;margin-top:8px}
+@media(min-width:860px){
+  .row{grid-template-columns:minmax(0,4fr) minmax(0,5fr) auto;align-items:center;padding:26px 0}
+  .row-tag{justify-self:end;margin-top:0}
+  .row-desc{font-size:16px}
+}
+.row:hover .row-name{color:var(--orange)}
+.row-name{transition:color .3s}
+
+/* ---------- ENGAGEMENTS ---------- */
+.eng{padding:clamp(56px,10vw,110px) 0;background:var(--noir)}
+.eng h2{font-family:"Barlow Condensed",sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(32px,7.4vw,60px);line-height:.96;margin:12px 0 34px;letter-spacing:-.01em}
+.eng-grid{display:grid;gap:2px;background:rgba(254,253,251,.14);border:1px solid rgba(254,253,251,.14)}
+.eng-card{background:var(--noir);padding:clamp(22px,5vw,34px);transition:background .3s}
+.eng-card:hover{background:#161413}
+.eng-card h3{margin:14px 0 8px;font-family:"Barlow Condensed",sans-serif;font-weight:800;text-transform:uppercase;font-size:22px;letter-spacing:.04em}
+.eng-card p{margin:0;color:rgba(254,253,251,.62);font-size:15px}
+.eng-card svg{width:26px;height:26px;stroke:var(--orange);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+@media(min-width:700px){.eng-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1060px){.eng-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* ---------- CONTACT ---------- */
+.contact{background:var(--orange);color:#fff;padding:clamp(56px,10vw,110px) 0}
+.contact h2{font-family:"Barlow Condensed",sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(36px,9vw,86px);line-height:.9;margin:10px 0 10px;letter-spacing:-.015em}
+.contact .sub{max-width:50ch;color:rgba(255,255,255,.88);margin:0 0 34px}
+.contact .eyebrow{color:rgba(255,255,255,.8)}
+.cards{display:grid;gap:14px}
+.card{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.3);border-radius:18px;padding:22px;transition:transform .25s,background .25s}
+.card:hover{transform:translateY(-4px);background:rgba(255,255,255,.2)}
+.card small{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:rgba(255,255,255,.78)}
+.card b{display:block;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;margin:6px 0 2px;letter-spacing:.02em}
+.card .num{font-size:19px;font-weight:800;letter-spacing:.02em}
+@media(min-width:760px){.cards{grid-template-columns:repeat(2,1fr)}}
+.direct{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.direct a{display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--noir);font-weight:800;font-size:14px;padding:13px 20px;border-radius:999px;transition:transform .25s}
+.direct a:hover{transform:translateY(-3px)}
+.direct svg{width:16px;height:16px;flex:none}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--noir);padding:clamp(40px,7vw,64px) 0;font-size:13px;color:var(--gris)}
+.f-top{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;padding-bottom:22px;border-bottom:1px solid rgba(254,253,251,.14)}
+.f-slogan{font-family:"Barlow Condensed",sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(22px,5vw,34px);color:var(--creme);letter-spacing:.02em}
+.f-slogan em{font-style:normal;color:var(--orange)}
+.f-legal{margin-top:20px;line-height:1.8}
+.f-legal a{color:var(--creme);text-decoration:underline;text-underline-offset:3px}
+
+/* révélations : uniquement si le JS tourne */
+.js .reveal{opacity:0;transform:translateY(26px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+
+@media(orientation:landscape) and (max-height:520px){
+  .hero{padding-top:26px}
+  .hero h1{font-size:clamp(40px,9vw,86px)}
+  .hero p.lede{font-size:15px;margin-top:18px}
+  .route{margin-top:28px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .vanwrap{transform:translate3d(26px,0,0)}
+  .line span{transform:none}
+  .row,.reveal{opacity:1!important;transform:none!important}
+  .hero p.lede,.cta-row{opacity:1}
+}
+</style>
+<script>document.documentElement.className+=" js";</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top">
+      <span class="logo-mark">P&amp;D</span>
+      <span class="logo-txt">Pick &amp; Deli</span>
+    </a>
+    <span class="nav-spacer"></span>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#engagements">Engagements</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="tel:+33623108226">Appeler</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-in">
+    <p class="eyebrow">Messagerie · Fret express · Nîmes</p>
+    <h1>
+      <span class="line"><span>Ça roule</span></span>
+      <span class="line"><span><em>pour</em></span></span>
+      <span class="line"><span>vous</span></span>
+    </h1>
+    <p class="lede">Enlèvement, transport et livraison de vos colis et palettes, partout en France. Une équipe basée à Nîmes, disponible 24h/24 et 7j/7, qui décroche quand vous appelez.</p>
+    <div class="cta-row">
+      <a class="btn btn-1" href="tel:+33623108226">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        06 23 10 82 26
+      </a>
+      <a class="btn btn-2" href="mailto:picketdeli@gmail.com?subject=Demande%20d%27enl%C3%A8vement&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20un%20enl%C3%A8vement%20%3A%0A-%20Adresse%20de%20d%C3%A9part%20%3A%0A-%20Adresse%20de%20livraison%20%3A%0A-%20Type%20de%20marchandise%20%3A%0A-%20Date%20souhait%C3%A9e%20%3A%0A%0AMerci.">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        Demander un enlèvement
+      </a>
+    </div>
+
+    <div class="route" aria-hidden="true">
+      <div class="rail">
+        <i class="dot on" style="left:0"></i>
+        <i class="dot" style="left:25%"></i>
+        <i class="dot" style="left:50%"></i>
+        <i class="dot" style="left:75%"></i>
+        <i class="dot" style="left:100%"></i>
+        <span class="vanwrap"><b class="van"></b></span>
+      </div>
+      <div class="labels">
+        <span class="on">Nîmes</span>
+        <span>Montpellier</span>
+        <span>Marseille</span>
+        <span>Lyon</span>
+        <span>Paris</span>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>240+</b><span>Clients satisfaits</span></div>
+      <div class="stat"><b>24/7</b><span>Express disponible</span></div>
+      <div class="stat"><b>4</b><span>Prestations</span></div>
+      <div class="stat"><b>2023</b><span>Créée à Nîmes</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="board" id="services">
+  <div class="wrap">
+    <p class="eyebrow">Nos prestations</p>
+    <h2>Ce qu&rsquo;on prend en charge</h2>
+    <p class="sub">Un seul interlocuteur pour vos envois urgents, vos tournées régulières, vos déménagements et vos déplacements.</p>
+    <div class="rows">
+      <a class="row" href="mailto:picketdeli@gmail.com?subject=Devis%20transport%20express">
+        <span class="row-name">Transport express</span>
+        <span class="row-desc">Enlèvement en urgence et livraison directe, sans rupture de charge.</span>
+        <span class="row-tag">24h/24 · 7j/7</span>
+      </a>
+      <a class="row" href="mailto:picketdeli@gmail.com?subject=Devis%20messagerie">
+        <span class="row-name">Messagerie</span>
+        <span class="row-desc">Colis, plis et palettes, en tournée régulière ou à la demande.</span>
+        <span class="row-tag">Pros &amp; particuliers</span>
+      </a>
+      <a class="row" href="mailto:picketdeli@gmail.com?subject=Devis%20d%C3%A9m%C3%A9nagement">
+        <span class="row-name">Déménagement</span>
+        <span class="row-desc">Chargement, transport et remise en main propre, avec du matériel adapté.</span>
+        <span class="row-tag">Sur devis</span>
+      </a>
+      <a class="row" href="mailto:picketdeli@gmail.com?subject=R%C3%A9servation%20chauffeur%20priv%C3%A9">
+        <span class="row-name">Chauffeur privé</span>
+        <span class="row-desc">Trajets sur réservation, ponctuels ou réguliers, en toute discrétion.</span>
+        <span class="row-tag">Sur réservation</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="eng" id="engagements">
+  <div class="wrap">
+    <p class="eyebrow">Nos engagements</p>
+    <h2 class="reveal">Quatre promesses<br>qu&rsquo;on tient à chaque course</h2>
+    <div class="eng-grid">
+      <div class="eng-card reveal">
+        <svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+        <h3>Réactivité</h3>
+        <p>Vous appelez, on répond. Le départ est organisé dans la foulée.</p>
+      </div>
+      <div class="eng-card reveal">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <h3>Ponctualité</h3>
+        <p>Le créneau annoncé est le créneau tenu, au départ comme à l&rsquo;arrivée.</p>
+      </div>
+      <div class="eng-card reveal">
+        <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.4-3 8-7 9-4-1-7-4.6-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
+        <h3>Sécurité</h3>
+        <p>Vos biens et vos passagers voyagent protégés, du chargement à la remise.</p>
+      </div>
+      <div class="eng-card reveal">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M9 10h6"/></svg>
+        <h3>Satisfaction</h3>
+        <p>Plus de 240 clients suivis, et un suivi direct du début à la fin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact direct</p>
+    <h2>Dites-nous où<br>et quand.</h2>
+    <p class="sub">Un appel suffit pour caler un enlèvement. Pour un devis écrit, envoyez-nous les adresses et le type de marchandise.</p>
+    <div class="cards">
+      <a class="card" href="tel:+33623108226">
+        <small>Président</small>
+        <b>Yoann Soum</b>
+        <span class="num">06 23 10 82 26</span>
+      </a>
+      <a class="card" href="tel:+33760596789">
+        <small>Directeur général</small>
+        <b>Jaafar Badreddine</b>
+        <span class="num">07 60 59 67 89</span>
+      </a>
+    </div>
+    <div class="direct">
+      <a href="mailto:picketdeli@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        picketdeli@gmail.com
+      </a>
+      <a href="https://wa.me/33623108226?text=Bonjour%2C%20je%20souhaite%20organiser%20un%20enl%C3%A8vement." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2m0 2a8 8 0 1 1-4.1 14.9l-.4-.2-2.6.7.7-2.5-.2-.4A8 8 0 0 1 12 4m-3.3 4c-.2 0-.5.1-.7.4s-.9.9-.9 2.1.9 2.5 1 2.6c.1.2 1.8 2.8 4.4 3.8 2.1.8 2.6.7 3 .6.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.3l-.6-.4-1.6-.8c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1s-1.1-.4-2-1.2c-.7-.6-1.2-1.4-1.3-1.6s0-.4.1-.5l.4-.5.3-.5v-.5l-.8-1.8c-.2-.4-.4-.4-.6-.4z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://www.google.com/maps/dir/?api=1&amp;destination=1%20rue%20Ecole%20Vieille%2C%2030000%20N%C3%AEmes" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        1 rue Ecole Vieille, Nîmes
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-slogan">Ça roule <em>pour vous</em></div>
+      <a class="btn btn-1" href="tel:+33760596789">Appeler le 07 60 59 67 89</a>
+    </div>
+    <div class="f-legal">
+      Pick &amp; Deli — SAS créée en juin 2023 · SIREN 953 216 843 · RCS Nîmes<br>
+      Siège : 1 rue Ecole Vieille, 30000 Nîmes · <a href="mailto:picketdeli@gmail.com">picketdeli@gmail.com</a><br>
+      Messagerie, fret express, déménagement et chauffeur privé à Nîmes et dans tout le Gard.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* filet de sécurité : si l'observateur ne se déclenche pas (navigateur
+     interne WhatsApp, connexion lente...), tout s'affiche quand même */
+  function toutAfficher(){
+    document.querySelectorAll('.reveal,.row').forEach(function(el){ el.classList.add('in'); });
+  }
+  setTimeout(toutAfficher, 2200);
+  window.addEventListener('load', function(){ setTimeout(toutAfficher, 900); });
+  if(!('IntersectionObserver' in window)){ toutAfficher(); return; }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  var rows = document.querySelectorAll('.row');
+  var ioRows = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var i = Array.prototype.indexOf.call(rows, e.target);
+        e.target.style.animationDelay = (i*0.09)+'s';
+        e.target.classList.add('in');
+        ioRows.unobserve(e.target);
+      }
+    });
+  },{threshold:.2});
+  rows.forEach(function(el){ ioRows.observe(el); });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      var t = document.querySelector(a.getAttribute('href'));
+      if(t){ ev.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
